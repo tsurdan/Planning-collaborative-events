@@ -1,16 +1,20 @@
 # Planning-collaborative-events
 
-**Background for the project**
+## Background for the project
+
 Many times in my life I have participated in all kinds of events where each participant brings a portion of the food, and then everyone eats it together, in the style of a cooperative meal. Such as shared meals in kindergarten, class evenings at school, class Saturdays, barbecues with friends and family, in many events in the youth movement and recently even in events such as Bat Mitzvah and engagement. Usually, before such events, a message is sent in the WhatsApp group of the participants in the event and each participant slots himself into the dish he wants to bring to the event. I have always been disturbed by the lack of logic and equality in these divisions, there is always a situation where one participant who entered early brings a light dish (let's say a package of Hadaf forks) while a participant who entered a little late is destined to bring a hard dish (like meatballs). After several times I tried I organized a list that would be as logical and equitable as possible, without success and with much trouble, I realized that this problem is the kind of problem that computers can help humans solve. So I programmed a website that would answer this problem and make fair and logical lists for every occasion, at the user's request.
 
-**major challenges**
+## major challenges
+
 The main challenge I encountered on the site was building the best distribution model for each situation and implementing it in an appropriate algorithm. After receiving input from the user that includes all the dishes he wants to have at the event, the quantity of each dish, its price and the degree of difficulty of preparing and carrying the dish. After receiving this input, how to divide the portions according to the number of participants so that the distribution is as logical, fair and equitable as possible. On the one hand, logic must be maintained in the distribution, that is, the amount to bring for each dish should be reasonable, let's say it doesn't make sense for many participants to each bring one leftover, and it also doesn't make sense for a participant to bring 4 salads. On the other hand, one should strive for equality in the distribution, so that there is no situation where one user brings a cake and another participant brings HDF glasses. I faced this problem throughout the year (and more) that I worked on building the website, I solved problem after problem and progressed step by step towards a good distribution model more and more.
 
-**technologies**
+## technologies
+
 I used the NET 5.4 framework technology to build the website (with aspx pages) and the C # programming language to operate the server side of the pages on the website.
 I used the .NET framework data provider for SQL technology to manipulate the database.
 
-**Description of the main algorithms**
+## Description of the main algorithms
+
 The division model carried out in list.aspx.cs Key operations and concepts:
 * Undivided portions: the portions in their "raw" state as entered by the user. Let's say he wants to have 6 rice pans at the event, so the undivided portion is 6 rice pans.
 * Divided portions: the portions after the first distribution. According to the doge of 6 rice molds, now there will be six divided portions, each of which is a rice pattern, note: a divided portion can also include a side dish (max. 1) let's say one rice pattern + 50 cups of rice is one divided portion.
@@ -23,8 +27,9 @@ The total difficulty: an operation that receives a portion divided by unit and r
 * Adding: an operation that receives an array of divided portions and returns an array of divided portions minus one divided portion and with another addition to an existing divided portion (a rice pan + 50 cups of HDF) the operation takes the easiest portion to bring in the array and adds it to the second lightest portion in the array. Let's say before additions In the array there were 10 divided portions, 8 of which are 7 schnitzels each and 2 of which are 50 cups each. So after the additions, an array will be returned in which there are 9 divided portions, 7 of which are 7 schnitzels each, 1 of which is 7 schnitzels + 50 cups and another 1 of which is 50 Cups. The action does not refer to ratings because: the logic rating is not affected by the action, and the equality rating is affected, but the best thing for him is to do what the action does (to add the easiest portion to the second easiest) so there is no need to check it.
 * Expansion of additions: an operation that receives an array of divided packets and expands the additions in the array, like the operation expand only on the additions only.
 
-**The distribution model itself:
-**First, the site divides the undivided portions into divided portions, only (without regard to the number of participants or the ratings) according to the normal amount to bring of each portion, let's say, from 30 birds, the normal amount is 8, this will become 4 divided portions 8 8 7 7 birds .
+## The distribution model itself:
+
+First, the site divides the undivided portions into divided portions, only (without regard to the number of participants or the ratings) according to the normal amount to bring of each portion, let's say, from 30 birds, the normal amount is 8, this will become 4 divided portions 8 8 7 7 birds .
 After that, the website compares the number of portions to the number of participants as follows:
 If there are more portions than people, the site cuts as much as necessary (so that the amount of distributed portions equals the number of participants). And if there are more people than the portions, the site expands as much as necessary (so that the amount of distributed portions equals the number of participants).
 Check the logic rating and the equality rating and keep both ratings.
