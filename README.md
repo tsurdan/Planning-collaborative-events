@@ -34,7 +34,3 @@ After that, the website compares the number of portions to the number of partici
 If there are more portions than people, the site cuts as much as necessary (so that the amount of distributed portions equals the number of participants). And if there are more people than the portions, the site expands as much as necessary (so that the amount of distributed portions equals the number of participants).
 Check the logic rating and the equality rating and keep both ratings.
 After that you enter the loop, as long as the change is legal and improves the ratings (their amount is small) make the change. A change can be expansion and additions with the possibility of expanding additions and all sorts of other trivial things such as replacing additions, etc. This is how the final distribution array that the website outputs is obtained, an array of portions some of which have additions, the best distribution. After presenting the site's division to the user, the user can edit the division and correct things he doesn't like, and only then the division is saved in the database, so the site learns and improves with each division, and learns norms.
-
-fb8debf864724e22b17cad2e4fb89494
-
-9cdc88c8456d45d89026a4fdc9edc135
